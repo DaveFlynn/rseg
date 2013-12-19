@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 
 class App < Sinatra::Base
   set :root,   File.dirname(__FILE__) + "/.."
@@ -17,6 +18,6 @@ class App < Sinatra::Base
   post '/seg' do
     @input = params[:input]
     @result = Rseg.segment(@input)
-    @result.join(' ')
+    @result.to_json
   end
 end

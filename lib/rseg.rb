@@ -2,6 +2,7 @@ $KCODE = 'UTF8'
 
 require 'singleton'
 require 'net/http'
+require 'json'
 
 require File.join(File.dirname(__FILE__), 'engines/engine')
 require File.join(File.dirname(__FILE__), 'engines/dict')
@@ -36,7 +37,7 @@ class Rseg
     def remote_segment(input)
       begin
         response = Net::HTTP.post_form(URI.parse('http://127.0.0.1:4100/seg'), :input => input)
-        response.code == '200' ? response.body.split(' ') : 
+        response.code == '200' ? JSON.load(response.body) : 
             ["Can't connect to http://localhost:4100\nUse rseg_server to start it"]
       rescue
         ["Can't connect to http://localhost:4100\nUse rseg_server to start it"]
