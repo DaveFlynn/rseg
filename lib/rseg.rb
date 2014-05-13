@@ -1,5 +1,3 @@
-$KCODE = 'UTF8'
-
 require 'singleton'
 require 'net/http'
 require 'json'

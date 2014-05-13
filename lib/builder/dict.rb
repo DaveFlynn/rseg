@@ -1,5 +1,3 @@
-$KCODE = 'UTF8'
-
 def process(path, tree)
   File.open(path, 'r') do |file|
     file.each_line do |line|
