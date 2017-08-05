@@ -58,7 +58,8 @@ class Rseg
     @words = []
     
     @input.chars.each do |origin|
-      char = filter(origin)
+      #char = filter(origin)
+      char = origin
       process(char, origin)
     end
     
