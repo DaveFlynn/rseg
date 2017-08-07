@@ -19,8 +19,7 @@ end
 
 def build
   tree = {}
-  dictionaries = ['cedict.zh_CN.utf8', 'wikipedia.zh.utf8']
-  
+  dictionaries = ['cedict_20170807.utf8']
   dictionaries.each do |dictionary|
     puts "Processing #{dictionary}..."
     path = File.join(File.dirname(__FILE__), '../../dict', dictionary)
