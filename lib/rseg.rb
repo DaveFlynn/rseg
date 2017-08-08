@@ -58,8 +58,8 @@ class Rseg
     @words = []
     
     @input.chars.each do |origin|
-      #char = filter(origin)
-      char = origin
+      char = filter(origin)
+      #char = origin
       process(char, origin)
     end
     
@@ -127,11 +127,11 @@ class Rseg
   end
 
   def init_filters
-    @filters = [Fullwidth, Symbol]
+    @filters = [Fullwidth]
   end
   
   def init_engines
-    @engines ||= [Dict, English, Number, Name].map do |engine_klass|
+    @engines ||= [Dict, English, Name].map do |engine_klass|
       engine_klass.new
     end
   end
